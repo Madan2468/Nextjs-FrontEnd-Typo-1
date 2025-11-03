@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+/* 🌑 Global dark setup */
+body {
+  @apply bg-black text-white;
+}
+
+/* 🎇 All custom animations & CSS variables */
+@theme inline {
+  /* ------------------------------- */
+  /* 🌟 Animations */
+  /* ------------------------------- */
+
+  /* Spotlight animation */
+  --animate-spotlight: smooth-spotlight 3s ease-out 0.5s 1 forwards;
+
+  /* Scroll animation */
+  --animate-scroll: scroll var(--animation-duration, 40s)
+    var(--animation-direction, forwards) linear infinite;
+
+  /* Meteor trail animation */
+  --animate-meteor-effect: meteor 5s linear infinite;
+
+  /* Cell ripple animation */
+  --animate-cell-ripple: cell-ripple var(--duration, 200ms) ease-out none 1
+    var(--delay, 0ms);
+
+  /* ------------------------------- */
+  /* 🌀 Keyframes */
+  /* ------------------------------- */
+
+  @keyframes smooth-spotlight {
+    0% {
+      opacity: 0;
+      transform: translate(-72%, -62%) scale(0.4) rotate(10deg);
+      filter: blur(60px) brightness(0.6);
+    }
+    60% {
+      opacity: 1;
+      transform: translate(-52%, -42%) scale(1.1) rotate(-5deg);
+      filter: blur(40px) brightness(1);
+    }
+    100% {
+      opacity: 1;
+      transform: translate(-50%, -40%) scale(1);
+      filter: blur(50px) brightness(1.2);
+    }
+  }
+
+  @keyframes scroll {
+    to {
+      transform: translate(calc(-50% - 0.5rem));
+    }
+  }
+
+  @keyframes meteor {
+    0% {
+      transform: rotate(215deg) translateX(0);
+      opacity: 1;
+    }
+    70% {
+      opacity: 1;
+    }
+    100% {
+      transform: rotate(215deg) translateX(-500px);
+      opacity: 0;
+    }
+  }
+
+  @keyframes cell-ripple {
+    0% {
+      opacity: 0.4;
+    }
+    50% {
+      opacity: 0.8;
+    }
+    100% {
+      opacity: 0.4;
+    }
+  }
+}
+
+/* 🎨 Accent colors for glowing borders (accessible globally) */
+:root {
+  --accent-light: 255, 255, 255;
+  --accent-dark: 56, 189, 248;
+}
