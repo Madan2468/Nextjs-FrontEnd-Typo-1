@@ -2,14 +2,9 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   typescript: {
-    // Ignore type errors during build (safe for deployment)
+    // ✅ Ignore type errors during build on Vercel
     ignoreBuildErrors: true,
   },
-  eslint: {
-    // Disable ESLint during builds to avoid warnings breaking deploy
-    ignoreDuringBuilds: true,
-  },
-  reactStrictMode: true,
 };
 
 export default nextConfig;
